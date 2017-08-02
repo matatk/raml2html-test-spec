@@ -1,0 +1,16 @@
+#%RAML 1.0 ResourceType
+
+delete:
+  description: Delete the selected <<item>>
+  responses:
+    204:
+get:
+  description: Get the details for the selected <<item>>
+  responses:
+    200:
+      body:
+        type: <<item>>
+put:
+  description: Update the selected <<item>>
+  body:
+    type: <<item>>

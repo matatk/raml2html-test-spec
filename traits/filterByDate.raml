@@ -1,0 +1,29 @@
+#%RAML 1.0 Trait
+
+displayName: Filter by Date
+description: Allows for a collection to be returned in chunks
+queryParameters:
+  beforeStartDate:
+    displayName: Before Start Date
+    description: Return items with a start date before the given date
+    type: date-only
+    example: 2017-01-01
+    required: false
+  afterStartDate:
+    displayName: After Start Date
+    description: Return items with a start date after the given date
+    type: date-only
+    example: 2017-01-01
+    required: false
+  beforeEndDate:
+    displayName: Before End Date
+    description: Return items with an end date before the given date
+    type: date-only
+    example: 2017-01-01
+    required: false
+  afterEndDate:
+    displayName: After End Date
+    description: Return items with an end date after the given date
+    type: date-only
+    example: 2017-01-01
+    required: false

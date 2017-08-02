@@ -1,0 +1,19 @@
+#%RAML 1.0 ResourceType
+
+get:
+  description: Get a list of <<item|!pluralize>>
+  responses:
+    200:
+      body:
+        type: <<item>>[]
+    401:
+      body:
+post:
+  description: Create a new <<item>>
+  body:
+    type: <<item>>
+  responses:
+    201:
+       headers:
+         Location:
+           example: /<<item>>/12345

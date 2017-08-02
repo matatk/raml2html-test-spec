@@ -1,0 +1,13 @@
+{
+  "name": "raml2html-test-spec",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Testing my raml2html additions",
+  "author": "Matthew Tylee Atkinson",
+  "scripts": {
+    "spec-html": "raml2html --validate api.raml > api.html"
+  },
+  "devDependencies": {
+    "raml2html": "~6.4"
+  }
+}

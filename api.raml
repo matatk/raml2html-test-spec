@@ -1,0 +1,60 @@
+#%RAML 1.0
+title: Testing Annotations on Types
+version: v1
+baseUri: http://tld.net/{version}
+mediaType: application/json
+
+annotationTypes:
+  notImplemented:
+    description: Yet to be implemented
+    type: nil
+  deprecated:
+    description: This is going to be deprecated
+    type: object
+    properties:
+      endDate:
+        description: deprecation date
+        type: date-only
+        required: true
+
+types:
+  User:
+    displayName: User
+    description: A person
+    type: object
+    properties:
+      id:
+        required: true
+        type: number
+      name:
+        description: The user's name
+        type: string
+        required: true
+      position:
+        (deprecated):
+          endDate: 2017-01-01
+        description: The user's job
+        type: string
+        required: true
+      role:
+        (notImplemented):
+        description: The user's role
+        type: string
+        required: false
+        enum: [user, manager, admin]
+
+resourceTypes:
+  Collection: !include ./resourceTypes/collection.raml
+  Member: !include ./resourceTypes/member.raml
+
+traits:
+  Pagination: !include ./traits/pagination.raml
+  FilterableByDate: !include ./traits/filterByDate.raml
+
+/user:
+  description: Operations for managing users
+  type: { Collection: {item: User} }
+  get:
+    is: [Pagination]
+  /{userId}:
+    type: { Member: {item: User} }
